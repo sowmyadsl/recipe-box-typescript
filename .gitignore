@@ -5,3 +5,6 @@ app/*.js
 app/*.js.map
 .DS_Store
 build/
+
+#Firebase credentials
+/app/api-keys.ts 

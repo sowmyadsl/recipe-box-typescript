@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Recipe } from './recipe.model';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,11 @@ import { Component } from '@angular/core';
   <div class="jumbotron">
   <h1>Recipe Box</h1>
   </div>
-  <ul>
+  <div class="container">
+  <div class="col-md-6">
+    <new-recipe (newRecipeSender)="addRecipe($event)"></new-recipe>
+  </div>
+  <ul class="col-md-6">
     <li *ngFor="let recipe of recipes">
       <h3
       (click)="onSelect(recipe)">{{recipe.title}}</h3>
@@ -32,6 +37,7 @@ import { Component } from '@angular/core';
       </div>
     </li>
   </ul>
+  </div>
   `
 })
 
@@ -58,10 +64,8 @@ export class AppComponent {
     }
   }
 
-}
+  addRecipe(newRecipeFromChild: Recipe) {
+    this.recipes.push(newRecipeFromChild);
+  }
 
-export class Recipe {
-  showDetails: boolean = false;
-  editRecipe: boolean = false;
-  constructor(public title: string, public ingredients: string, public directions: string){}
 }
