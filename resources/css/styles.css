@@ -1,0 +1,4 @@
+.jumbotron{
+  background: url("./../images/recipes-banner.jpg") no-repeat;
+  background-size: cover;
+}
